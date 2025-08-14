@@ -1,0 +1,76 @@
+*{
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+   
+}
+body{
+    background: url(./images/Banner1.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+    overflow-x: hidden;
+}
+.navbar{
+    background-color: red;
+    height: 80px;
+    
+}
+.navbar h2{
+    color: white;
+    position: relative;
+    top: -30px;
+    left: 70px;
+    
+}
+span img{
+    width: 50px;
+    border-radius: 100px;
+    position: relative;
+    top: 10px;
+    left: 10px;
+}
+.container{
+    position: relative;
+    top: 100px;
+    left: 55%;
+    border: 1px solid black;
+    width: 400px;
+    padding: 20px;
+}
+.card{
+    font-size: 20px;
+    text-align: center;
+    padding-bottom: 20px;
+    color: red;
+}
+.user-input input{
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    outline: none;
+    font-size: 15px;
+}
+.check-input{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* margin-top: 10px; */
+    margin-bottom: 10px;
+}
+.login{
+    width: 100%;
+    padding: 10px;
+    background-color: rgb(201, 48, 48);
+    text-align: center;
+    font-size: 18px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    border: none;
+    color: white;
+
+}
+
+

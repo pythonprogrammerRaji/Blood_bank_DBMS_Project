@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style1.css')}}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+<body>
+   <div class="navbar">
+        <p><span><img src="{{ url_for('static', filename='images/logo.png')}}" alt=""></span> <h2>BLOOD BANK MANAGEMENT</h2></p>
+    </div>
+    <div class="home_container">
+        <div class="element_list">
+            <ul>
+                <li><i class="fa-solid fa-house"></i> <a href="{{ url_for('home') }}">Home</a></li>
+                <li><i class="fa-solid fa-user-tie"></i> <a href="{{ url_for('admin') }}">Admin</a></li>
+                <li><i class="fa-solid fa-user"></i> <a href="{{ url_for('donor') }}">Donor</a> </li>
+                <li><i class="fa-solid fa-hospital-user"></i> <a href="{{ url_for('patient') }}">Patient</a></li>
+                <li><i class="fa-solid fa-hand-holding-droplet"></i> <a href="{{ url_for('donation') }}">Donations</a> </li>
+                <li><i class="fa-solid fa-repeat"></i> <a href="{{ url_for('blood_request') }}">Blood Requests</a> </li>
+                <li><i class="fa-solid fa-hand-holding-droplet"></i> <a href="{{ url_for('blood_stock') }}">Blood Stuck</a> </li>
+            </ul>
+        </div>
+        <div class="banner2">
+            <img src="{{ url_for('static', filename='images/Blood-Bank.jpg')}}" alt="">
+        </div>
+    </div>
+
+    <div class="donor_information">
+        <h1>Donor Registration</h1>
+
+        <form action="/donor" method="POST">
+
+            <div class="form-group">
+                <label for="donor_id">Donorid</label>
+                <input type="number" name="donor_id" placeholder="Will be assigned automatically" readonly><br>
+            </div>
+
+            <div class="form-group">
+                <label for="fullname">Full Name: </label>
+                <input type="text" name="name" placeholder="Enter Fullname" required><br>
+            </div>
+        
+            <div class="form-group">
+                <label for="blood_group">Blood Group: </label>
+                <select name="blood_group" required>
+                    <option value="blood">Select Blood</option>
+                    <option value="A+">A+</option>
+                    <option value="B+">B+</option>
+                    <option value="O+">O+</option>
+                    <option value="AB+">AB+</option>
+                    <option value="A-">A-</option>
+                    <option value="B-">B-</option>
+                    <option value="O-">O-</option>
+                    <option value="AB-">AB-</option>
+                </select>
+            </div>
+
+
+            <div class="form-group">
+                <label for="gender">Gender:</label>
+                <select name="gender" required>
+                    <option value="">Select Gender</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="">Age:   </label>
+                <input type="number" name="age" placeholder="Enter Your Age" required><br>
+            </div>
+            
+            
+            <div class="form-group">
+                 <label for="weight">Weight: </label>
+                <input type="number" name="weight" step='0.1' placeholder="Enter Your Weight" required><br>
+            </div>
+           
+
+            <div class="form-group">
+               <label for="last_donation">Last Donated: </label>
+               <input type="date" name="last_donation" required><br> 
+            </div>
+            
+
+            <div class="form-group">
+                <label for="phone">Phone Number: </label>
+                <input type="number" name="phone"  placeholder="Enter Your PhoneNumber" required><br>
+
+            </div>
+            
+            <div class="form-group">
+                <label for="">Address: </label>
+                <textarea name="address" placeholder="Type or Click on the map" required></textarea ><br>
+            </div>
+
+            <div class="button">
+                <button type="submit" class="btn1">Submit</button>
+                <button type="reset" class="btn2">Reset</button>
+            </div>
+
+            
+
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15557.75895705705!2d77.4348319325992!3d12.879421266835587!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae389945e00ed1%3A0x23b7465b0c91d84c!2sKumbalgodu%2C%20Karnataka%20560074!5e0!3m2!1sen!2sin!4v1750432359425!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+        </form>
+    </div>
+</body>
+
+
+
+</html>

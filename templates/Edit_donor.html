@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Donor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style1.css')}}">
+</head>
+    <style>
+      /* Basic Reset */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f7f7f7;
+}
+
+/* Container */
+form {
+  max-width: 500px;
+  margin: 50px auto;
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+}
+
+/* Form Title */
+h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #d90000;
+}
+
+/* Input fields */
+input[type="text"],
+input[type="number"],
+input[type="date"],
+select,
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Submit Button */
+button[type="submit"] {
+  width: 100%;
+  background: #d90000;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button[type="submit"]:hover {
+  background: #b00000;
+}
+
+/* Textarea height */
+textarea {
+  height: 80px;
+}
+    </style>
+<body>
+
+    <h2>Edit Donor Information</h2>
+
+    <form action="/update_donor/{{ donor[0] }}" method="POST">
+        <input type="text" name="name" value="{{ donor[1] }}" required><br>
+        <input type="number" name="age" value="{{ donor[2] }}" required><br>
+
+        <select name="gender" required>
+            <option value="Male" {% if donor[3] == 'Male' %}selected{% endif %}>Male</option>
+            <option value="Female" {% if donor[3] == 'Female' %}selected{% endif %}>Female</option>
+            <option value="Other" {% if donor[3] == 'Other' %}selected{% endif %}>Other</option>
+        </select><br>
+
+        <input type="text" name="blood_group" value="{{ donor[4] }}" required><br>
+        <input type="number" name="weight" value="{{ donor[5] }}" required><br>
+        <input type="date" name="last_donation" value="{{ donor[6] }}"><br>
+        <input type="text" name="phone" value="{{ donor[7] }}" required><br>
+        <textarea name="address" required>{{ donor[8] }}</textarea><br>
+
+        <button type="submit">Update Donor</button>
+    </form>
+
+</body>
+</html>

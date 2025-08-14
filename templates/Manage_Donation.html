@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Manage Donations</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style1.css') }}">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+            padding: 30px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        .center {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .add-btn {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 14px;
+            position: relative;
+            left: -400px;
+            top: -20px;
+        }
+
+        table {
+            width: 90%;
+            margin: auto;
+            border-collapse: collapse;
+            background-color: #fff;
+            box-shadow: 0 0 8px rgba(0,0,0,0.1);
+        }
+
+        th, td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #ddd;
+            text-align: center;
+        }
+
+        th {
+            background-color: #007bff;
+            color: white;
+        }
+
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        .btn {
+            padding: 6px 12px;
+            border-radius: 4px;
+            color: white;
+            text-decoration: none;
+            font-size: 13px;
+        }
+
+        .edit-btn {
+            background-color: #28a745;
+        }
+
+        .delete-btn {
+            background-color: #dc3545;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Donation Management</h2>
+
+    <div class="center">
+        <a href="/donation" class="add-btn">Add New Donation</a>
+    </div>
+
+    <table>
+        <tr>
+            <th>Donation ID</th>
+            <th>Donor Name</th>
+            <th>Blood Group</th>
+            <th>Quantity (ml)</th>
+            <th>Donation Date</th>
+            <th>Actions</th>
+        </tr>
+
+        {% for donation in donations %}
+        <tr>
+            <td>{{ donation[0] }}</td> <!-- donation_id -->
+            <td>{{ donation[1] }}</td> <!-- donor name (joined from donor table) -->
+            <td>{{ donation[2] }}</td> <!-- blood_group -->
+            <td>{{ donation[3] }}</td> <!-- quantity_ml -->
+            <td>{{ donation[4] }}</td> <!-- donation_date -->
+            <td>
+                <a href="{{ url_for('edit_donation', donation_id=donation[0]) }}" class="btn edit-btn">Edit</a>
+                <a href="{{ url_for('delete_donation', donation_id=donation[0]) }}" class="btn delete-btn" onclick="return confirm('Are you sure you want to delete this donation?')">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+</body>
+</html>

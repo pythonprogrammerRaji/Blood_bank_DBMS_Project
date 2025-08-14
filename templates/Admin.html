@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin Home</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style1.css')}}">
+</head>
+<body>
+
+      <div class="navbar">
+        <p><span><img src="{{ url_for('static', filename='images/logo.png')}}" alt=""></span> <h2>BLOOD BANK MANAGEMENT</h2></p>
+    </div>
+
+  <header>
+    <h1>Welcome Admin - Blood Bank System</h1>
+  </header>
+
+  <div class="container">
+  
+    <ul>
+      <h2>Admin Menu</h2>
+      <li><a href="{{ url_for('home') }}">Home</a></li>
+      <li><a href="{{ url_for('manage_donor') }}">Manage Donors</a></li>
+      <li><a href="{{ url_for('manage_patient') }}">Manage Patients</a></li>
+      <li><a href="{{ url_for('manage_donation') }}">Manage Donations</a></li>
+      <li><a href="{{ url_for('blood_stock') }}">Blood Stock</a></li>
+      <li><a href="{{ url_for('manage_blood_request') }}">Blood Requests</a></li>
+      <!-- <li><a href="Manage_Notification.html">Send Notifications</a></li>
+      <li><a href="Manage_Report.html">Reports</a></li> -->
+    </ul>
+
+     <div class="banner2">
+        <img src="{{ url_for('static', filename='images/Blood-Bank.jpg')}}" alt="">
+      </div>
+  </div>
+</body>
+</html>

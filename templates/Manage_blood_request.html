@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Manage Blood_Request</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style1.css') }}">
+</head>
+<body>
+
+     <div class="navbar">
+        <p><span><img src="{{ url_for('static', filename='images/logo.png')}}" alt=""></span> <h2>BLOOD BANK MANAGEMENT</h2></p>
+    </div>
+
+    <div style="text-align: center; margin: 15px;">
+        <a href="{{ url_for('admin') }}" style="font-size: 18px; text-decoration: none; color: white; border: 1px solid red; padding: 10px; background-color: red;">← Back to Admin</a>
+    </div>
+
+    <h2>All Blood_Request Records</h2>
+
+    <div class="container">
+        <table border="1" cellpadding="10" cellspacing="0">
+            <thead>
+                <tr>
+                    <th>ID</th><th>Patient Name</th><th>Blood Group</th><th>Quantity</th><th>Requested_date</th><th>Status</th><th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for request in requests %}
+                <tr>
+                    <td>{{ request[0] }}</td>
+                    <td>{{ request[1] }}</td>
+                    <td>{{ request[2] }}</td>
+                    <td>{{ request[3] }}</td>
+                    <td>{{ request[4] }}</td>
+                    <td>{{ request[5] }}</td>
+
+                    <td>
+                        <a href="/edit_blood_request/{{ request[0] }}" style="color: white; padding: 10px;background-color: green; text-decoration: none;">Edit</a> 
+                        <a href="/delete_blood_request/{{ request[0] }}" onclick="return confirem('Are you sure you want to delete {{ request[1] }}?')" style="color: white; padding: 10px;background-color: red; text-decoration: none; margin-left: 10px;">Delete</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>

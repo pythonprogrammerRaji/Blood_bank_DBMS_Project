@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Patient</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style1.css')}}">
+</head>
+    <style>
+      /* Basic Reset */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f7f7f7;
+}
+
+/* Container */
+form {
+  max-width: 500px;
+  margin: 50px auto;
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+}
+
+/* Form Title */
+h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #d90000;
+}
+
+/* Input fields */
+input[type="text"],
+input[type="number"],
+input[type="date"],
+select,
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Submit Button */
+button[type="submit"] {
+  width: 100%;
+  background: #d90000;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button[type="submit"]:hover {
+  background: #b00000;
+}
+
+/* Textarea height */
+textarea {
+  height: 80px;
+}
+    </style>
+<body>
+
+    <h2>Edit Patient Information</h2>
+
+    <form action="/update_patient/{{ patient[0] }}" method="POST">
+        <input type="hidden" name="id"  value="{{ patient[0] }}">
+        <label for="name">Name</label>
+        <input type="text" name="name" value="{{ patient[1] }}" required><br>
+
+         <label for="age">Age</label>
+        <input type="number" name="age" value="{{ patient[2] }}" required><br>
+
+        <select name="gender" required>Gender
+            <option value="Male" {% if patient[3] == 'Male' %}selected{% endif %}>Male</option>
+            <option value="Female" {% if patient[3] == 'Female' %}selected{% endif %}>Female</option>
+            <option value="Other" {% if patient[3] == 'Other' %}selected{% endif %}>Other</option>
+        </select><br>
+
+         <label for="blood_group">Blood_group</label>
+        <input type="text" name="blood_group" value="{{ patient[4] }}" required><br>
+
+        <label for="weight">Weight</label>
+        <input type="number" name="weight" value="{{ patient[5] }}" required><br>
+
+        <label for="requested_date">Requested_date</label>
+        <input type="date" name="requested_date" value="{{ patient[6] }}"><br>
+
+         <label for="phone">Phone</label>
+        <input type="text" name="phone" value="{{ patient[7] }}" required><br>
+
+        <label for="address">Address</label>
+        <textarea name="address" required>{{ patient[8] }}</textarea><br>
+
+        <button type="submit">Update Patient</button>
+    </form>
+
+</body>
+</html>

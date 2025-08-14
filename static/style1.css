@@ -1,0 +1,235 @@
+*{
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    
+}
+html, body{
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+.navbar{
+    background-color: red;
+    height: 80px;
+    
+}
+.navbar h2{
+    color: white;
+    position: relative;
+    top: -30px;
+    left: 70px;
+    
+}
+span img{
+    width: 50px;
+    border-radius: 100px;
+    position: relative;
+    top: 10px;
+    left: 10px;
+}
+/* home page */
+.home_container{
+    width: 100%;
+    display: flex;
+
+    
+}
+.element_list{
+    background-color: blue;
+    width: 220px;
+    color: white;
+    height: 600px; 
+}
+
+ul li{
+    padding: 25px;
+} 
+
+.banner2{
+    width: 70%;
+ 
+}
+.banner2 img{
+    width: 120%;
+}
+a{
+    color: white;
+    text-decoration: none;
+    padding-left: 8px;
+}
+.blood_stack{
+    width: 70%;
+    position: relative;
+    left: 50px;
+    top: 30px;
+    
+}
+.Positive_bloods, .Negative_bloods{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 15px;
+}
+.Bloods{
+     box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 
+     2px 6px 2px;
+     width: 555px;
+     height: 150px;
+     margin: 20px;
+     padding: 20px;
+     font-size: 20px;
+}
+.Bloods p{
+    position: relative;
+    left: 100px;
+}
+.blood_count{
+    font-size: 15px;
+    color: gray;
+    position: relative;
+    top: 70px;
+    left: -10px;
+}
+
+/* Donor page */
+.donor_information{
+   display: flex;
+   width: 600px;
+   padding: 10px;
+   align-items: center;
+   justify-content: center;
+   flex-direction: column;
+   position: relative;
+   left: 480px;
+   top: -250px;
+   box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
+
+   
+}
+.donor_information h1{
+    color: red;
+    padding: 10px;
+    margin-bottom: 20px;
+   
+
+}
+.form-group{
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+}
+label{
+    width: 100px;
+    margin: 10px;
+}
+input, textarea{
+    flex: 1;
+    padding: 8px;
+    box-sizing: border-box;
+    outline: none;
+    
+}
+input:hover{
+    border: 1px solid red;
+}
+iframe{
+    position: absolute;
+    left: 0;
+    right: 20px;
+}
+.button{
+    margin-left: 80px;
+    margin-bottom: 10px;
+}
+.btn1, .btn2{
+    padding: 10px;
+    width: 100px;
+    font-size: 15px;
+    font-weight: bold;
+    color: white;
+    border: none;
+}
+.btn1{
+    background-color: red;
+}
+.btn2{
+    background-color: green;
+}
+
+/* Admin page */
+header {
+  background-color: #2980b9;
+  color: white;
+  padding: 15px;
+  text-align: center;
+}
+
+.container {
+  /* s */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+h2 {
+  color: #2c3e50;
+}
+
+.container a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  width: 100%;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.container ul{
+  list-style-type: none;
+  padding-left: 0;
+  background-color: gray;
+  width: 20%;
+ 
+}
+.container .banner2{
+    width: 80%;
+    margin-top: -0PX;
+    
+}
+
+.container .banner2 img{
+    width: 100%;
+    height: 502px;
+}
+
+
+ul li {
+  margin-bottom: 10px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: white;
+  box-shadow: 0px 0px 5px #ccc;
+}
+
+th, td {
+  padding: 12px;
+  border: 1px solid #ccc;
+  text-align: left;
+}
+
+th {
+  background-color: #3498db;
+  color: white;
+}
+select{
+    padding: 5px 3px;
+    width: 50%;
+    font-size: 15px;
+}

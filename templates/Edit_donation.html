@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Donation</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style1.css') }}">
+</head>
+<style>
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f7f7f7;
+}
+
+/* Container */
+form {
+  max-width: 500px;
+  margin: 50px auto;
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+}
+
+/* Form Title */
+h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #d90000;
+}
+
+/* Input fields */
+input[type="text"],
+input[type="number"],
+input[type="date"],
+select,
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Submit Button */
+button[type="submit"] {
+  width: 100%;
+  background: #d90000;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button[type="submit"]:hover {
+  background: #b00000;
+}
+
+/* Textarea height */
+textarea {
+  height: 80px;
+}
+</style>
+<body>
+
+<h2>Edit Donation Entry</h2>
+
+    <form action="{{ url_for('update_donation', donation_id=donation[0]) }}" method="POST">
+        <label>Donor:</label>
+        <select name="donor_id" required>
+            {% for d in donors %}
+            <option value="{{ d[0] }}" {% if d[0] == donation[1] %}selected{% endif %}>
+                 {{ d[1] }}
+            </option>
+            {% endfor %}
+        </select><br><br>
+
+        <label>Blood Group:</label>
+        <input type="text" name="blood_group" value="{{ donation[2] }}" required><br><br>
+
+        <label>Quantity (ml):</label>
+        <input type="number" name="quantity_ml" value="{{ donation[3] }}" required><br><br>
+
+        <label>Donation Date:</label>
+        <input type="date" name="donation_date" value="{{ donation[4] }}" required><br><br>
+
+        <button type="submit">Update</button>
+        <a href="/manage_donation">Cancel</a>
+     </form>
+
+</body>
+</html>

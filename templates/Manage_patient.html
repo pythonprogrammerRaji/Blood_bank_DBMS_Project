@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Manage Patient</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style1.css') }}">
+</head>
+<body>
+
+     <div class="navbar">
+        <p><span><img src="{{ url_for('static', filename='images/logo.png')}}" alt=""></span> <h2>BLOOD BANK MANAGEMENT</h2></p>
+    </div>
+
+    <div style="text-align: center; margin: 15px;">
+        <a href="{{ url_for('admin') }}" style="font-size: 18px; text-decoration: none; color: white; border: 1px solid red; padding: 10px; background-color: red;">← Back to Admin</a>
+    </div>
+
+    <h2>All Pateint Records</h2>
+
+    <div class="container">
+        <table border="1" cellpadding="10" cellspacing="0">
+            <thead>
+                <tr>
+                    <th>ID</th><th>Name</th><th>Blood Group</th><th>Gender</th><th>Weight</th>
+                    <th>Last Donation</th><th>Phone</th><th>Address</th><th>Age</th><th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for patient in patient %}
+                <tr>
+                    <td>{{ patient[0] }}</td>
+                    <td>{{ patient[1] }}</td>
+                    <td>{{ patient[2] }}</td>
+                    <td>{{ patient[3] }}</td>
+                    <td>{{ patient[4] }}</td>
+                    <td>{{ patient[5] }}</td>
+                    <td>{{ patient[6] }}</td>
+                    <td>{{ patient[7] }}</td>
+                    <td>{{ patient[8] }}</td>
+                    <td>
+                        <a href="/edit_patient/{{ patient[0] }}" style="color: white; padding: 10px;background-color: green; text-decoration: none;">Edit</a> 
+                        <a href="/delete_patient/{{ patient[0] }}" onclick="return confirem('Are you sure you want to delete {{ patient[1] }}?')" style="color: white; padding: 10px;background-color: red; text-decoration: none; margin-left: 10px;">Delete</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>

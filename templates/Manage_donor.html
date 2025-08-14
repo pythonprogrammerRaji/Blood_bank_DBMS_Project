@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Manage Donors</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style1.css') }}">
+</head>
+<body>
+
+     <div class="navbar">
+        <p><span><img src="{{ url_for('static', filename='images/logo.png')}}" alt=""></span> <h2>BLOOD BANK MANAGEMENT</h2></p>
+    </div>
+
+    <div style="text-align: center; margin: 15px;">
+        <a href="{{ url_for('admin') }}" style="font-size: 18px; text-decoration: none; color: white; border: 1px solid red; padding: 10px; background-color: red;">← Back to Admin</a>
+    </div>
+
+    <h2>All Donor Records</h2>
+
+    <div class="container">
+        <table border="1" cellpadding="10" cellspacing="0">
+            <thead>
+                <tr>
+                    <th>ID</th><th>Name</th><th>Age</th><th>Gender</th><th>Blood Group</th>
+                    <th>Weight</th><th>Last Donation</th><th>Phone</th><th>Address</th><th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for donor in donors %}
+                <tr>
+                    <td>{{ donor[0] }}</td>
+                    <td>{{ donor[1] }}</td>
+                    <td>{{ donor[2] }}</td>
+                    <td>{{ donor[3] }}</td>
+                    <td>{{ donor[4] }}</td>
+                    <td>{{ donor[5] }}</td>
+                    <td>{{ donor[6] }}</td>
+                    <td>{{ donor[7] }}</td>
+                    <td>{{ donor[8] }}</td>
+                    <td>
+                        <a href="/edit_donor/{{ donor[0] }}" style="color: white; padding: 10px;background-color: green; text-decoration: none;">Edit</a> 
+                        <a href="/delete_donor/{{ donor[0] }}" onclick="return confirem('Are you sure you want to delete {{ donor[1] }}?')" style="color: white; padding: 10px;background-color: red; text-decoration: none; margin-left: 10px;">Delete</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>

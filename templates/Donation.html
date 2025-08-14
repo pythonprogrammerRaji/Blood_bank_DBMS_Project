@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donation</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style1.css')}}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+<body>
+    <div class="navbar">
+        <p><span><img src="{{ url_for('static', filename='images/logo.png')}}" alt=""></span> <h2>BLOOD BANK MANAGEMENT</h2></p>
+    </div>
+    <div class="home_container">
+        <div class="element_list">
+           <ul>
+                <li><i class="fa-solid fa-house"></i> <a href="{{ url_for('home') }}">Home</a></li>
+                <li><i class="fa-solid fa-user-tie"></i> <a href="{{ url_for('admin') }}">Admin</a></li>
+                <li><i class="fa-solid fa-user"></i> <a href="{{ url_for('donor') }}">Donor</a> </li>
+                <li><i class="fa-solid fa-hospital-user"></i> <a href="{{ url_for('patient') }}">Patient</a></li>
+                <li><i class="fa-solid fa-hand-holding-droplet"></i> <a href="{{ url_for('donation') }}">Donations</a> </li>
+                <li><i class="fa-solid fa-repeat"></i> <a href="{{ url_for('blood_request') }}">Blood Requests</a> </li>
+                <li><i class="fa-solid fa-hand-holding-droplet"></i> <a href="{{ url_for('blood_stock') }}">Blood Stuck</a> </li>
+            </ul>
+        </div>
+        <div class="banner2">
+        <img src="{{ url_for('static', filename='images/Blood-Bank.jpg')}}" alt="">
+      </div>
+    </div>
+
+    <div class="donor_information">
+        <h1>Donation Registration</h1>
+
+       <form action="/donation" method="POST">
+    <div class="form-group">
+        <label for="donationid">Donation ID</label>
+        <input type="number" name="donationid" id="donationid" placeholder="Will be assigned automatically" readonly><br>
+    </div>
+
+    <div class="form-group">
+       <label for="donor_id">Select Donor:</label>
+       <select name="donor_id" required>
+        {% for d in donors %}
+        <option value="{{ d[0] }}">{{ d[1] }} ({{ d[2] }})</option> <!-- d[0]=id, d[1]=name, d[2]=blood_group -->
+        {% endfor %}
+       </select>
+    </div><br>
+
+    <div class="form-group">
+        <label for="donation_date">Donation Date:</label>
+        <input type="date" name="donation_date" required><br>
+    </div>
+
+    <div class="form-group">
+        <label for="blood_group">Blood Group:</label>
+        <input type="text" name="blood_group" placeholder="Blood group" required><br>
+    </div>
+    
+    <div class="form-group">
+        <label for="quantity_ml">Quantity Donated (ml):</label>
+        <input type="number" name="quantity_ml" placeholder="Enter Donated (ml)" required><br>
+    </div>
+
+    <div class="button">
+        <button type="submit" class="btn1">Submit</button>
+        <button type="reset" class="btn2">Reset</button>
+    </div>
+</form>
+    </div>
+</body>
+
+
+
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style1.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+<body>
+   <div class="navbar">
+        <p><span><img src="{{ url_for('static', filename='images/logo.png')}}" alt=""></span> <h2>BLOOD BANK MANAGEMENT</h2></p>
+    </div>
+
+    <div class="home_container">
+        <div class="element_list">
+            <ul>
+                <li><i class="fa-solid fa-house"></i> <a href="{{ url_for('home') }}">Home</a></li>
+                <li><i class="fa-solid fa-user-tie"></i> <a href="{{ url_for('admin') }}">Admin</a></li>
+                <li><i class="fa-solid fa-user"></i> <a href="{{ url_for('donor') }}">Donor</a> </li>
+                <li><i class="fa-solid fa-hospital-user"></i> <a href="{{ url_for('patient') }}">Patient</a></li>
+                <li><i class="fa-solid fa-hand-holding-droplet"></i> <a href="{{ url_for('donation') }}">Donations</a> </li>
+                <li><i class="fa-solid fa-repeat"></i> <a href="{{ url_for('blood_request') }}">Blood Requests</a> </li>
+                <li><i class="fa-solid fa-hand-holding-droplet"></i> <a href="{{ url_for('blood_stock') }}">Blood Stuck</a> </li>
+            </ul>
+        </div>
+         <div class="banner2">
+        <img src="{{ url_for('static', filename='images/banner2.jpg')}}" alt="">
+      </div>
+    </div>
+
+    <a href="/logout">Logout</a>
+</html>
